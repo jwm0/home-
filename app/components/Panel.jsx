@@ -1,35 +1,51 @@
 var React = require('react');
 
-var Panel = (props) => {
-  return(
-    <div className="page2">
-      <form data-abide noValidate>
+var Panel = React.createClass({
+  componentDidMount: function() {
+    var elem = new Foundation.Slider($('.slider'));
+  },
+  onFormSubmit: function(e){
+    e.preventDefault();
+    var location = this.refs.location.value;
+    alert(location);
+    this.forceUpdate();
+  },
+  render: function() {
+    var curTemp = 20;
+    var temp=this.location;
+
+    function showSelectedTemp(shit){
+      return(
+        <div>
+          {temp}
+        </div>
+      )
+    }
+    return (
+      <div className="panel">
         <div className="row">
-          <div className="large-4 medium-6 small-12 columns">
-            <label>Login
-              <input type="text" placeholder="username" required pattern="number"/>
-              <span className="form-error">
-                Enter your username
-              </span>
-            </label>
+          <div className="borderName">now</div>
+          <div className="currentStats">
+            Temp: 28
           </div>
-          <div className="large-4 medium-6 small-12 columns">
-            <label>Password
-              <input type="password" id="password" placeholder="password" required />
-              <span className="form-error">
-                I'm required!
-              </span>
-            </label>
+          <div className="borderName">control panel</div>
+          <div className="controlPanel">
+            <div className="slider vertical" data-slider data-initial-start={curTemp} data-end="200" data-vertical="true">
+              <span className="slider-handle" data-slider-handle role="slider" tabIndex="1" aria-controls="sliderOutput1"></span>
+              <span className="slider-fill" data-slider-fill></span>
+              <input type="hidden" ref="location"/>
+            </div>
+          </div>
+          <div className="borderButton">
+              <form onSubmit={this.onFormSubmit}>
+                <button type="submit" className="success button large" value="Submit">confirm</button>
+              </form>
           </div>
         </div>
-    <div className="row">
-      <fieldset className="large-12 columns">
-        <button className="button" type="submit" value="Submit">Submit</button>
-      </fieldset>
-    </div>
-  </form>
-</div>
-  )
-};
+        {showSelectedTemp("okay")}
+      </div>
+    )
+  }
+});
 
 module.exports = Panel;

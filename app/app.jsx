@@ -3,10 +3,12 @@ var ReactDOM = require('react-dom');
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 var Main = require('Main');
 var Page = require('Page');
+var Login = require('Login');
 var Panel = require('Panel');
 
 // load foundation
 require('style!css!foundation-sites/dist/foundation.min.css');
+
 $(document).foundation();
 
 // app css

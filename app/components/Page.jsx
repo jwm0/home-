@@ -4,7 +4,7 @@ var Page = () => {
   return(
     <div>
       <div className="page1">
-        <h1>Your home+</h1>
+        <h1><span className="my-object">Your home</span><span style={{'color':'#191414'}}>+</span></h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras erat lorem, auctor venenatis fringilla sed, maximus in nisl. Quisque molestie scelerisque accumsan.</p>
         <p>Donec bibendum cursus placerat.</p>
       </div>
