@@ -5,10 +5,14 @@ var minTemp = 17;
 var Panel = React.createClass({
   componentDidMount: function() {
     var elem = new Foundation.Slider($('.slider'));
+    var that = this;
+    $('.slider').on('moved.zf.slider', function() {
+        that.onValueChange();
+    });
   },
   getInitialState: function () {
     return{
-      setTemp: this.refs.location.value;
+      setTemp: undefined
     };
   },
   onValueChange: function () {
@@ -27,13 +31,14 @@ var Panel = React.createClass({
     var {setTemp} = this.state;
     var curTemp = 24; // <-- API
     curTemp = (curTemp-minTemp)*10;
-    var temp=setTemp; // not necessary, can use setTemp later
-    var random = Math.random(); // test, to be removed
+
+
 
     function showSelectedTemp(){
+      if(typeof setTemp == 'number')
       return(
-        <div style={{border:'2px solid red;height:50px'}}>
-          {temp}
+        <div className="tempDisplay">
+          {setTemp.toFixed(1)}°C
         </div>
       )
     }
@@ -42,19 +47,31 @@ var Panel = React.createClass({
         <div className="row">
           <div className="borderName">now</div>
           <div className="currentStats">
-            Temp: {random}
+            Temp: 28
           </div>
           <div className="borderName">control panel</div>
           <div className="controlPanel">
-            <div className="slider vertical" data-slider data-initial-start={curTemp} data-step="5" data-end="110" data-vertical="true">
-              <span className="slider-handle" data-slider-handle role="slider" tabIndex="1" aria-controls="sliderOutput1"
-             onClick={this.onValueChange}
-             onMouseUp={this.onValueChange}
-             onMouseMove={this.onValueChange}
-             onMouseDown={this.onValueChange}></span>
-              <span className="slider-fill" data-slider-fill></span>
+            <div className="temperatureControl">
+              <div className="controlName">Temperature</div>
+              <div className="slider vertical" data-slider data-initial-start={curTemp} data-step="5" data-end="110" data-vertical="true">
+                <span className="slider-handle" data-slider-handle role="slider" tabIndex="1"></span>
+                <span className="slider-fill" data-slider-fill></span>
+                <input id="tempInput" type="hidden" ref="location" onChange={this.onValueChange}/>
+              </div>
+              {showSelectedTemp()}
             </div>
-            <input type="number" id="sliderOutput1" ref="location" onProgress={this.onValueChange}/>
+            <div className="temperatureControl">
+              <div className="controlName">Light switch</div>
+              <div className="switch">
+                <input className="switch-input" id="switch1" type="checkbox" name="exampleSwitch"/>
+                <label className="switch-paddle" htmlFor="switch1">
+                  <span className="show-for-sr">Lights switch</span>
+                  <span className="switch-active" aria-hidden="true">On</span>
+                  <span className="switch-inactive" aria-hidden="true">Off</span>
+                </label>
+              </div>
+              {showSelectedTemp()}
+            </div>
           </div>
           <div className="borderButton">
               <form onSubmit={this.onFormSubmit}>
@@ -62,7 +79,6 @@ var Panel = React.createClass({
               </form>
           </div>
         </div>
-        {showSelectedTemp()}
       </div>
     )
   }

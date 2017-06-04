@@ -33,7 +33,7 @@
 .controlPanel{
   padding: 20px;
   width: 100%;
-  height: 40vh;
+  height: 50vh;
   margin-top: -20px;
   margin-bottom: -32px;
   border: 3px solid $green;
@@ -50,4 +50,21 @@
   padding: 0 25px;
   z-index: 1;
   background-color: #FEFEFE;
+}
+
+.temperatureControl{
+  width: 25%;
+  float: left;
+}
+
+.controlName{
+  margin-bottom: 15px;
+}
+
+.tempDisplay{
+  font-family: 'Questrial', sans-serif;
+  font-size: 30px;
+  border-bottom: 2px solid $blue;
+  width: 100px;
+  margin: 0 auto;
 }

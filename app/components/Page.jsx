@@ -14,7 +14,7 @@ var Page = () => {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus neque vel turpis blandit, quis pharetra lorem ultricies. Sed aliquam nulla congue lacus mollis, nec cursus ligula semper. Nunc ut tortor vehicula quam fermentum placerat. Nullam sapien lorem, volutpat at convallis a, semper maximus risus. Morbi sed justo ut libero placerat viverra sit amet ut tortor. Pellentesque eleifend quam a est ornare, vel aliquam neque euismod. Duis et maximus justo, at tristique sapien. .</p>
           <p>Sed maximus imperdiet erat, vel pharetra mauris tincidunt nec. Aliquam diam dolor, tempus ac tincidunt sit amet, posuere et mi. Curabitur nec dictum ipsum. Integer volutpat tincidunt ex, maximus tristique augue pretium a. Morbi lobortis nunc purus, sit amet condimentum nulla commodo vel. Mauris finibus sapien metus, quis feugiat ante venenatis quis. Proin luctus pellentesque lorem, id vestibulum libero efficitur id. Curabitur.</p>
           <p>
-            <img src="img/iphone.png"></img>
+            <img src={require('../img/iphone.png')}/>
           </p>
         </div>
       </div>

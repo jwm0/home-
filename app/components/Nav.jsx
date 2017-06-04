@@ -6,7 +6,7 @@ var Nav = () => {
     <div className="header">
         <div className="top-bar-left">
           <ul className="menu">
-            <li><IndexLink to ="/" className="menu_logo">home<span style={{'fontFamily':'"Maven Pro",sans-serif;font-size:100px;color:#191414;'}}>+</span></IndexLink></li>
+            <li><IndexLink to ="/" className="menu_logo">home<span style={{'fontFamily':'"Maven Pro",sans-serif;font-size:100px;color:#191414'}}>+</span></IndexLink></li>
           </ul>
         </div>
         <div className="top-bar-right">
