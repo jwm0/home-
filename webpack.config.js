@@ -45,6 +45,10 @@ module.exports = {
         test: /\.(png|jpg|jpeg|gif|woff)$/,
         loader: 'url-loader'
       },
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+        loader: 'file?name=fonts/[name].[ext]'
+      }
     ]
   },
   devtool: 'cheap-module-eval-source-map'

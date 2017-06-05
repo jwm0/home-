@@ -2,9 +2,12 @@ $green: #1ed760;
 $dark: #191414;
 $white: #fff;
 $blue: #00888b;
+$lightblue: #2199E8;
 $darkgrey: #55706D;
+$red: #ff6363;
 
 @import "components/panel";
+@import "fontello";
 
 body
 {
@@ -153,6 +156,10 @@ h2
 {
   padding-top: 10vh;
 }
+.formButton{
+  display: inline-block;
+  margin: 20px;
+}
 #page3
 {
   background-image: url("../img/congruent_pentagon.png");
@@ -173,4 +180,7 @@ h2
   background-color: #191414;
   font-family: 'Poiret One', cursive;
   letter-spacing: 2px;
+}
+.callout{
+  background-color: $green;
 }

@@ -1,6 +1,8 @@
 var React = require('react');
 
 var minTemp = 17;
+var roomTemp = 25.7; // <-- room temperature
+var arrow = undefined;
 
 var Panel = React.createClass({
   componentDidMount: function() {
@@ -28,13 +30,21 @@ var Panel = React.createClass({
     e.preventDefault();
     var tempHandle = this.refs.tempHandle.value;
     var value = minTemp + tempHandle*0.1;
-    alert(value);
+    if(value>roomTemp)
+      arrow="icon-up-small";
+    else if (value<roomTemp)
+      arrow="icon-down-small";
+    else {
+      arrow=undefined;
+    }
+
     this.forceUpdate(); // <- to be removed
   },
   render: function() {
     var {setTemp, windowBlinds} = this.state;
-    var curTemp = 24; // <-- API
+    var curTemp = 23; // <-- API
     var curBlindPosition = 0; // <-- API
+
     curTemp = (curTemp-minTemp)*10;
 
 
@@ -60,13 +70,12 @@ var Panel = React.createClass({
       <div className="panel">
         <div className="row">
           <div className="borderName">now</div>
-          <div className="currentStats">
-            Temp: 28
+          <div className="currentStats">{roomTemp}°C<i className={arrow}></i>
           </div>
           <div className="borderName">control panel</div>
           <div className="controlPanel">
             <div className="temperatureControl">
-              <div className="controlName">Temperature</div>
+              <div className="controlName icon-temperatire">temperature</div>
               <div className="slider vertical" data-slider data-initial-start={curTemp} data-step="5" data-end="110" data-vertical="true" id="tempSlider">
                 <span className="slider-handle" data-slider-handle role="slider" tabIndex="1"></span>
                 <span className="slider-fill" data-slider-fill></span>
@@ -75,7 +84,7 @@ var Panel = React.createClass({
               {showSelectedTemp()}
             </div>
             <div className="temperatureControl">
-              <div className="controlName">Window blinds</div>
+              <div className="controlName icon-window-maximize">window blinds</div>
               <div className="slider vertical" data-slider data-initial-start={curBlindPosition} data-step="25" data-end="100" data-vertical="true" id="blindsSlider">
                 <span className="slider-handle" data-slider-handle role="slider" tabIndex="1"></span>
                 <span className="slider-fill" data-slider-fill></span>
@@ -83,10 +92,10 @@ var Panel = React.createClass({
               </div>
               {showBlindsPosition()}
             </div>
-            <div className="borderName">Switches</div>
+            <div className="borderName">switches <i className="icon-exchange"></i></div>
             <div id="lightPanel">
               <div className="switchControl">
-                <div className="controlName">Indoor lights</div>
+                <div className="controlName">indoor lights</div>
                 <div className="switch large">
                   <input className="switch-input" id="switch1" type="checkbox"/>
                   <label className="switch-paddle" htmlFor="switch1">
@@ -97,7 +106,7 @@ var Panel = React.createClass({
                 </div>
               </div>
               <div className="switchControl">
-                <div className="controlName">Outdoor lights</div>
+                <div className="controlName">outdoor lights</div>
                 <div className="switch large">
                   <input className="switch-input" id="switch2" type="checkbox"/>
                   <label className="switch-paddle" htmlFor="switch2">
@@ -108,7 +117,7 @@ var Panel = React.createClass({
                 </div>
               </div>
               <div className="switchControl">
-                <div className="controlName">TV</div>
+                <div className="controlName">tv</div>
                 <div className="switch large">
                   <input className="switch-input" id="switch3" type="checkbox"/>
                   <label className="switch-paddle" htmlFor="switch3">

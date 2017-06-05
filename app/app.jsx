@@ -17,6 +17,7 @@ require('!style!css!sass!applicationStyles');
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
+      <Route path="login" component={Login}/>
       <Route path="panel" component={Panel}/>
       <IndexRoute component={Page}/>
     </Route>

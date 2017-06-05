@@ -8,7 +8,7 @@ var Page = () => {
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras erat lorem, auctor venenatis fringilla sed, maximus in nisl. Quisque molestie scelerisque accumsan.</p>
         <p>Donec bibendum cursus placerat.</p>
       </div>
-      <div className="page2">
+      <div className="page2" id="ourProductPage">
         <div className="product">
           <h2>our product</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam luctus neque vel turpis blandit, quis pharetra lorem ultricies. Sed aliquam nulla congue lacus mollis, nec cursus ligula semper. Nunc ut tortor vehicula quam fermentum placerat. Nullam sapien lorem, volutpat at convallis a, semper maximus risus. Morbi sed justo ut libero placerat viverra sit amet ut tortor. Pellentesque eleifend quam a est ornare, vel aliquam neque euismod. Duis et maximus justo, at tristique sapien. .</p>
