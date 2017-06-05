@@ -10,6 +10,9 @@ var Main = (props) => {
           {props.children}
         </div>
       </div>
+      <div id="footer">
+        <span style={{'font-size':'15px'}}>&copy; 2017</span> home+
+      </div>
     </div>
   );
 };

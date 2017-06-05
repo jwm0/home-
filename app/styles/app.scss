@@ -2,12 +2,14 @@ $green: #1ed760;
 $dark: #191414;
 $white: #fff;
 $blue: #00888b;
+$darkgrey: #55706D;
 
 @import "components/panel";
 
 body
 {
   background-color: $green;
+  background-image: url('../img/background2.png');
   margin: 0 !important;
   color: $white;
   font-family: 'Lato', sans-serif;
@@ -39,8 +41,8 @@ body
   font-family: 'Poiret One', cursive;
   letter-spacing: 5px;
   padding: 8px;
-  padding-bottom: 10px;
-  margin-left: 40px;
+  padding-bottom: 0px;
+  margin-left: 50px;
   font-size: 80px;
   border-bottom: 2px solid rgba(25, 20, 20, 0.6);
   float:left;
@@ -150,4 +152,26 @@ h2
 .user_login
 {
   padding-top: 10vh;
+}
+#page3
+{
+  background-image: url("../img/congruent_pentagon.png");
+  width: 100%;
+}
+#about
+{
+  width: 50%;
+  color: #191414;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 80px;
+  height: 300px;
+}
+#footer
+{
+  width: 100%;
+  padding: 15px 0;
+  background-color: #191414;
+  font-family: 'Poiret One', cursive;
+  letter-spacing: 2px;
 }

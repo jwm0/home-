@@ -4,7 +4,7 @@ var Page = () => {
   return(
     <div>
       <div className="page1">
-        <h1><span className="my-object">Your home</span><span style={{'color':'#191414'}}>+</span></h1>
+        <h1><span className="my-object">Your home</span><span style={{'color':'#191414'}}><b>+</b></span></h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras erat lorem, auctor venenatis fringilla sed, maximus in nisl. Quisque molestie scelerisque accumsan.</p>
         <p>Donec bibendum cursus placerat.</p>
       </div>
@@ -16,6 +16,13 @@ var Page = () => {
           <p>
             <img src={require('../img/iphone.png')}/>
           </p>
+        </div>
+      </div>
+      <div id="page3">
+        <div id="about">
+          <h1>about <span style={{color:'#191414'}}>us</span></h1>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras erat lorem, auctor venenatis fringilla sed, maximus in nisl. Quisque molestie scelerisque accumsan.
+          Donec bibendum cursus placerat.
         </div>
       </div>
     </div>

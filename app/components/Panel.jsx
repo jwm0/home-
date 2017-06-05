@@ -75,7 +75,8 @@ var Panel = React.createClass({
           </div>
           <div className="borderButton">
               <form onSubmit={this.onFormSubmit}>
-                <button type="submit" className="success button large" value="Submit">confirm</button>
+                <button className="coolButton">confirm</button>
+                {/* <button type="submit" className="coolButton success button large" value="Submit">confirm</button> */}
               </form>
           </div>
         </div>
