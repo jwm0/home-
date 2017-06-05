@@ -22,7 +22,7 @@ var Page = () => {
         <div id="about">
           <h1>about <span style={{color:'#191414'}}>us</span></h1>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras erat lorem, auctor venenatis fringilla sed, maximus in nisl. Quisque molestie scelerisque accumsan.
-          Donec bibendum cursus placerat.
+          <p>Donec bibendum cursus placerat.Cras iaculis semper consectetur. Nunc mattis dictum dapibus. Nullam eu sagittis est. Cras vitae odio sit amet nunc molestie pellentesque a vel leo. Proin ut tellus nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
         </div>
       </div>
     </div>

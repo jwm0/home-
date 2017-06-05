@@ -57,6 +57,11 @@
   float: left;
 }
 
+.switchControl{
+  width: 33.333%;
+  float: left;
+}
+
 .controlName{
   margin-bottom: 15px;
 }
@@ -65,7 +70,7 @@
   font-family: 'Questrial', sans-serif;
   font-size: 30px;
   border-bottom: 2px solid $blue;
-  width: 100px;
+  width: 150px;
   margin: 0 auto;
 }
 
@@ -93,4 +98,14 @@
     width: 250px;
     box-shadow: 3px 3px 2px rgba(black, 0.15);
   }
+}
+
+#lightPanel{
+  margin-top: -20px;
+  float: right;
+  width: 50%;
+  height: 281px;
+  border: 2px solid $blue;
+  border-radius: 20px;
+  padding-top: 75px;
 }

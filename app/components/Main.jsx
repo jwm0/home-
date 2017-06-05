@@ -11,7 +11,7 @@ var Main = (props) => {
         </div>
       </div>
       <div id="footer">
-        <span style={{'font-size':'15px'}}>&copy; 2017</span> home+
+        <span style={{'fontSize':'15px'}}>&copy; 2017</span> home+
       </div>
     </div>
   );

@@ -4,32 +4,37 @@ var minTemp = 17;
 
 var Panel = React.createClass({
   componentDidMount: function() {
-    var elem = new Foundation.Slider($('.slider'));
+    var slider1 = new Foundation.Slider($('#tempSlider'));
+    var slider2 = new Foundation.Slider($('#blindsSlider'));
     var that = this;
-    $('.slider').on('moved.zf.slider', function() {
+    $('#switch1').prop('checked', true);
+    $("#tempSlider, #blindsSlider").on('moved.zf.slider', function() {
         that.onValueChange();
     });
   },
   getInitialState: function () {
     return{
-      setTemp: undefined
+      setTemp: undefined,
+      windowBlinds: undefined
     };
   },
   onValueChange: function () {
     this.setState({
-      setTemp: minTemp + this.refs.location.value*0.1
+      setTemp: minTemp + this.refs.tempHandle.value*0.1,
+      windowBlinds: this.refs.blindsHandle.value
     });
   },
   onFormSubmit: function(e){
     e.preventDefault();
-    var location = this.refs.location.value;
-    var value = minTemp + location*0.1;
+    var tempHandle = this.refs.tempHandle.value;
+    var value = minTemp + tempHandle*0.1;
     alert(value);
     this.forceUpdate(); // <- to be removed
   },
   render: function() {
-    var {setTemp} = this.state;
+    var {setTemp, windowBlinds} = this.state;
     var curTemp = 24; // <-- API
+    var curBlindPosition = 0; // <-- API
     curTemp = (curTemp-minTemp)*10;
 
 
@@ -42,6 +47,15 @@ var Panel = React.createClass({
         </div>
       )
     }
+
+    function showBlindsPosition(){
+      return(
+        <div className="tempDisplay">
+          {windowBlinds}%
+        </div>
+      )
+    }
+
     return (
       <div className="panel">
         <div className="row">
@@ -53,24 +67,57 @@ var Panel = React.createClass({
           <div className="controlPanel">
             <div className="temperatureControl">
               <div className="controlName">Temperature</div>
-              <div className="slider vertical" data-slider data-initial-start={curTemp} data-step="5" data-end="110" data-vertical="true">
+              <div className="slider vertical" data-slider data-initial-start={curTemp} data-step="5" data-end="110" data-vertical="true" id="tempSlider">
                 <span className="slider-handle" data-slider-handle role="slider" tabIndex="1"></span>
                 <span className="slider-fill" data-slider-fill></span>
-                <input id="tempInput" type="hidden" ref="location" onChange={this.onValueChange}/>
+                <input id="tempInput" type="hidden" ref="tempHandle" onChange={this.onValueChange}/>
               </div>
               {showSelectedTemp()}
             </div>
             <div className="temperatureControl">
-              <div className="controlName">Light switch</div>
-              <div className="switch">
-                <input className="switch-input" id="switch1" type="checkbox" name="exampleSwitch"/>
-                <label className="switch-paddle" htmlFor="switch1">
-                  <span className="show-for-sr">Lights switch</span>
-                  <span className="switch-active" aria-hidden="true">On</span>
-                  <span className="switch-inactive" aria-hidden="true">Off</span>
-                </label>
+              <div className="controlName">Window blinds</div>
+              <div className="slider vertical" data-slider data-initial-start={curBlindPosition} data-step="25" data-end="100" data-vertical="true" id="blindsSlider">
+                <span className="slider-handle" data-slider-handle role="slider" tabIndex="1"></span>
+                <span className="slider-fill" data-slider-fill></span>
+                <input id="blindsInput" type="hidden" ref="blindsHandle"/>
               </div>
-              {showSelectedTemp()}
+              {showBlindsPosition()}
+            </div>
+            <div className="borderName">Switches</div>
+            <div id="lightPanel">
+              <div className="switchControl">
+                <div className="controlName">Indoor lights</div>
+                <div className="switch large">
+                  <input className="switch-input" id="switch1" type="checkbox"/>
+                  <label className="switch-paddle" htmlFor="switch1">
+                    <span className="show-for-sr">Lights switch</span>
+                    <span className="switch-active" aria-hidden="true">On</span>
+                    <span className="switch-inactive" aria-hidden="true">Off</span>
+                  </label>
+                </div>
+              </div>
+              <div className="switchControl">
+                <div className="controlName">Outdoor lights</div>
+                <div className="switch large">
+                  <input className="switch-input" id="switch2" type="checkbox"/>
+                  <label className="switch-paddle" htmlFor="switch2">
+                    <span className="show-for-sr">Lights switch</span>
+                    <span className="switch-active" aria-hidden="true">On</span>
+                    <span className="switch-inactive" aria-hidden="true">Off</span>
+                  </label>
+                </div>
+              </div>
+              <div className="switchControl">
+                <div className="controlName">TV</div>
+                <div className="switch large">
+                  <input className="switch-input" id="switch3" type="checkbox"/>
+                  <label className="switch-paddle" htmlFor="switch3">
+                    <span className="show-for-sr">Lights switch</span>
+                    <span className="switch-active" aria-hidden="true">On</span>
+                    <span className="switch-inactive" aria-hidden="true">Off</span>
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
           <div className="borderButton">
