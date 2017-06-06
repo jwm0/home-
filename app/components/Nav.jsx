@@ -3,15 +3,11 @@ var {Link, IndexLink} = require('react-router');
 
 var Nav = React.createClass({
   componentDidMount: function () {
-    $("#ourProduct").click(function() {
-        $('html, body').animate({
-            scrollTop: $("#ourProductPage").offset().top
-        }, 1000);
+    $('#ourProduct').click(function() {
+      $.scrollTo($('#ourProductPage'), 500);
     });
-    $("#aboutus").click(function() {
-        $('html, body').animate({
-            scrollTop: $("#about").offset().top
-        }, 1000);
+    $('#aboutus').click(function() {
+      $.scrollTo($('#about'), 500);
     });
   },
   render: function () {

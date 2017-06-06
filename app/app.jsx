@@ -8,6 +8,7 @@ var Panel = require('Panel');
 
 // load foundation
 require('style!css!foundation-sites/dist/foundation.min.css');
+require('script!jquery.scrollto/jquery.scrollTo.min.js');
 
 $(document).foundation();
 
