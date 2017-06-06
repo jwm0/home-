@@ -1,7 +1,7 @@
 var React = require('react');
 
 var minTemp = 17;
-var roomTemp = 25.7; // <-- room temperature
+var roomTemp = "--.--"; // <-- room temperature
 var arrow = undefined;
 
 var Panel = React.createClass({

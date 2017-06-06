@@ -7,8 +7,10 @@ var Support = React.createClass({
     var that = this;
     $('#support').on("submit", function(ev) {
       ev.preventDefault();
-      $('#support').foundation('resetForm');
-      that.onSuccess();
+      if(that.refs.text.value.length>10){
+        $('#support').foundation('resetForm');
+        that.onSuccess();
+      }
       });
   },
   getInitialState: function () {
@@ -38,7 +40,7 @@ var Support = React.createClass({
             <div data-abide-error className="alert" style={{display:'none'}}>
             </div>
             <div className="row">
-              <div className="small-4 large-centered columns">
+              <div className="small-4 small-centered columns">
                 <label>Enter your e-mail
                   <input type="text" placeholder="name@example.com" aria-describedby="exampleHelpText" required pattern="email"/>
                   <span className="form-error">
@@ -48,11 +50,11 @@ var Support = React.createClass({
               </div>
             </div>
             <div className="row">
-              <div className="small-6 large-centered columns">
+              <div className="small-8 small-centered columns">
                 <label>What's wrong?
-                  <textarea placeholder="Type in here" rows="4" cols="50" aria-describedby="exampleHelpText" required></textarea>
+                  <textarea pattern=".{10,}" placeholder="Type in here" rows="4" cols="50" ref="text" aria-describedby="exampleHelpText" required></textarea>
                   <span className="form-error">
-                    Required!
+                    The message needs to be at least 10 characters long!
                   </span>
                 </label>
               </div>
