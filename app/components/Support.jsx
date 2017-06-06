@@ -6,6 +6,7 @@ var Support = React.createClass({
     var elem2 = new Foundation.Abide($('#support'));
     var that = this;
     $('#support').on("submit", function(ev) {
+      ev.preventDefault();
       $('#support').foundation('resetForm');
       that.onSuccess();
       });
