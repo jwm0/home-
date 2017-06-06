@@ -27,7 +27,8 @@ module.exports = {
       Nav: 'app/components/Nav.jsx',
       Page: 'app/components/Page.jsx',
       Panel: 'app/components/Panel.jsx',
-      Login: 'app/components/Login.jsx'
+      Login: 'app/components/Login.jsx',
+      Support: 'app/components/Support.jsx'
     },
     extensions: ['','.js','.jsx']
   },

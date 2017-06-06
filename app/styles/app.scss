@@ -184,3 +184,27 @@ h2
 .callout{
   background-color: $green;
 }
+#bug{
+  display: inline-block;
+  padding: 5px 15px;
+  color: #a6ada9;
+  border-left: 1px solid #a6ada9;
+  font-family: 'Lato', sans-serif;
+  font-size:15px;
+  #bugText{
+    color: #6ed192;
+  }
+  #bugText:hover{
+    color: $green;
+  }
+}
+
+#messageSubmit{
+  display: inline-block;
+  padding: 30px 50px;
+  border-radius: 30px;
+  background-color: $green;
+  color: $white;
+  font-size: 25px;
+  margin-bottom: 100px;
+}

@@ -5,6 +5,7 @@ var Main = require('Main');
 var Page = require('Page');
 var Login = require('Login');
 var Panel = require('Panel');
+var Support = require('Support');
 
 // load foundation
 require('style!css!foundation-sites/dist/foundation.min.css');
@@ -20,6 +21,7 @@ ReactDOM.render(
     <Route path="/" component={Main}>
       <Route path="login" component={Login}/>
       <Route path="panel" component={Panel}/>
+      <Route path="support" component={Support}/>
       <IndexRoute component={Page}/>
     </Route>
   </Router>,

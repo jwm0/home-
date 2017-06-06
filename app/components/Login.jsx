@@ -3,7 +3,7 @@ var React = require('react');
 var Login = React.createClass({
   componentDidMount: function() {
     var elem = new Foundation.Abide($('#abide'));
-    $(document).on("submit", function(ev) {
+    $('#abide').on("submit", function(ev) {
       ev.preventDefault();
       window.location.replace("/#/panel");
     });
@@ -11,7 +11,7 @@ var Login = React.createClass({
   render: function () {
       return(
         <div className="page2" id="abide">
-          <form data-abide noValidate onSubmit={this.onFormSubmit}>
+          <form data-abide noValidate>
             <div data-abide-error className="alert callout" style={{display:'none'}}>
               <p><i className="fi-alert"></i>Wrong ID/password</p>
             </div>
